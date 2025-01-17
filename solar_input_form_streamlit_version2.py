@@ -21,22 +21,23 @@ def calculate_solar_pv_system(num_bedrooms, num_acs):
             inverter_type = "3kW_inverter"
             battery_type = "2.5kWh_battery"
             num_batteries = 1
+            num_inverters = 1
         else:
             inverter_type = "5kW_inverter"
             battery_type = "5kWh_battery"
             num_batteries = num_acs
+            num_inverters = 1
     elif num_bedrooms > 4:
         if num_acs == 0:
             inverter_type = "5kW_inverter"
             battery_type = "5kWh_battery"
             num_batteries = 1
+            num_inverters = 1
         else:
             inverter_type = "5kW_inverter"
             battery_type = "5kWh_battery"
             num_batteries = num_acs
             num_inverters = 2  # Use two 5kW inverters
-        else:
-            num_inverters = 1
 
     # Calculate battery capacity and number of panels
     battery_capacity = num_batteries * float(battery_type.split("kWh")[0])  # in kWh
